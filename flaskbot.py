@@ -5,13 +5,14 @@ from telebot import types
 import ast
 import qrcode
 from aligo import Aligo, Auth
+from setting import TOKEN
 from telethon import TelegramClient
 
 from setting import base_path, datapath
 from aliyunpan import blfile, dowlodfile
 from local_file import get_files, del_file
 
-TOKEN = "1725389645:AAFtB1HfUVaHV-knttR58Xc8nA4RcIVnB7k"
+# TOKEN =
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
@@ -75,7 +76,7 @@ def chat_message(message):
         bot.send_message(message.chat.id, text='返回音频')
     elif message.text == '视频':
         bot.send_message(message.chat.id, text='返回视频')
-        # vide = r'D:\project\herokuflaskweb\data\大理寺日志.S01E02.mp4'
+        # vide = r'D:\project\herokuflaskweb\data\E02.mp4'
         # vide_dir, vide_name = os.path.split(vide)
         # with open(vide, 'rb') as fp:
         #     bot.send_video(chat_id=message.chat.id, data=fp, caption=vide_name)
@@ -160,7 +161,7 @@ def handle_query(call):
                               parse_mode='HTML')
 
 
-# post 发送请求样式: 1725389645:AAFtB1HfUVaHV-knttR58Xc8nA4RcIVnB7k
+# post 发送请求样式: 9696253845:AA8nA4RVFtBVXcB1HfUVXc-B1HfUVaHt8nA4RcIVnB7k
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
     json_string = request.get_data().decode('utf-8')
@@ -174,7 +175,6 @@ def getMessage():
 @server.route("/", methods=['GET'])
 def webhook():
     bot.remove_webhook()
-    # ret = bot.set_webhook(url='https://herokuflaskweb.herokuapp.com/' + TOKEN)
     ret = bot.set_webhook(url="https://08e8-171-212-217-234.ngrok.io/" + TOKEN)
     if ret:
         return "ok"

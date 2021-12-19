@@ -1,9 +1,11 @@
 from telethon import TelegramClient
 from telethon.tl.types import DocumentAttributeVideo
+from setting import api_id, api_hash, TOKEN
 
-# bot_token = '5096068391:AAFw4nL5LhbA9WSXeoDWhgOHje-wsWsmv48'
-api_id = 12218302  # 申请的TG API ID
-api_hash = '6331242062a6378f3016db6643f10277'  # 申请的TG API hash
+bot_token = TOKEN
+api_id = api_id  # 申请的TG API ID
+api_hash = api_hash  # 申请的TG API hash
+
 
 # file_path = '/tmp/sg.mp4'
 # path = '/tmp/qbt.mp4'

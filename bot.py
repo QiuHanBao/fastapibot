@@ -5,12 +5,13 @@ import ast
 import qrcode
 from aligo import Aligo, Auth
 from telethon import TelegramClient
+from flask import Flask
 
-from setting import base_path, datapath
+from setting import base_path, datapath, TOKEN
 from aliyunpan import blfile, dowlodfile
 from local_file import get_files, del_file
 
-TOKEN = "1725389645:AAFtB1HfUVaHV-knttR58Xc8nA4RcIVnB7k"
+TOKEN = TOKEN
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
@@ -157,8 +158,6 @@ def handle_query(call):
                               message_id=call.message.message_id,
                               reply_markup=makeFilesKeyboard(),
                               parse_mode='HTML')
-
-
 
 
 if __name__ == "__main__":

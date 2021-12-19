@@ -11,16 +11,16 @@ import qrcode
 from aligo import Aligo, Auth
 from telethon import TelegramClient
 
-from setting import base_path, datapath
+from setting import base_path, datapath, TOKEN
 from aliyunpan import blfile, dowlodfile
-from local_file import get_files, del_file,send_file
+from local_file import get_files, del_file, send_file
 
 # TODO: possible upgrades
 #  - move {secret} to path
 #  - use OnlyTelegramNetworkWithSecret as dependency:
 # 查看webhook 信息
-# https://api.telegram.org/bot1725389645:AAFtB1HfUVaHV-knttR58Xc8nA4RcIVnB7k/getWebhookInfo
-TOKEN = "1725389645:AAFtB1HfUVaHV-knttR58Xc8nA4RcIVnB7k"
+# https://api.telegram.org/bot{Token}/getWebhookInfo
+TOKEN = TOKEN
 TELEGRAM_SEND_MESSAGE_URL = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 TELEGRAM_SET_WEBHOOK_URL = f"https://api.telegram.org/bot{TOKEN}/setWebhook"
 HOST_URL = None
@@ -191,7 +191,6 @@ def handle_query(call):
         if send_file(send_fpath):
             from tele_client import run
             run(send_fpath)
-
 
 
 @app.post('/{TOKEN}')
