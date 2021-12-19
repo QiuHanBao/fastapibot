@@ -1,0 +1,9 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*idea
+venv/*
+data/*.mp4
+log/*
+setting.py
